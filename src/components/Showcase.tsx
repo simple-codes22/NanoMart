@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import firstImage from './../assets/Showcase/One.jpg';
-import { Image } from "@chakra-ui/react";
+// import { Image } from "@chakra-ui/react";
 
 interface showReel {
   title: string;

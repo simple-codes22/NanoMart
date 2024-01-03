@@ -1,5 +1,6 @@
-import { Box, Flex, Input, Button, HStack, } from "@chakra-ui/react";
+import { Box, Flex, Input, Button, HStack, Tag, TagLabel } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+
 
 const Header = () => {
   return (
@@ -15,7 +16,7 @@ const Header = () => {
 
         <HStack align='center' spacing='70px'>
           <Link to="">Account</Link>
-          <Link to="/cart">Cart</Link>
+          <Link to="/cart">Cart <Tag display='inline-flex' justifyContent='center' alignItems='center' colorScheme="orange" size='md'><TagLabel>0</TagLabel></Tag></Link>
         </HStack>
 
       </Flex>

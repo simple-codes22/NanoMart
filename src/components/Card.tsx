@@ -1,4 +1,4 @@
-import { Box, Card as ChakraCard } from '@chakra-ui/react';
+import { Box, Button, CardBody, CardFooter, Card as ChakraCard, Image } from '@chakra-ui/react';
 
 interface CardDetails {
     image: string;
@@ -10,13 +10,26 @@ interface CardDetails {
 
 const Card = (props: CardDetails) => {
   return (
-    <Box>
+    <>
         {props ? 
         <ChakraCard>
-
+          <CardBody>
+            <Image objectFit='cover' alt={props.title} src={props.image} />
+            <Box pt="30px">
+              {props.title}
+            </Box>
+            <Box pt='10px' pb='10px'>
+              ${props.price}
+            </Box>
+          </CardBody>
+          <CardFooter>
+            <Button>
+              Add To Cart
+            </Button>
+          </CardFooter>
         </ChakraCard>
         : <Box></Box>}
-    </Box>
+    </>
   )
 }
 
