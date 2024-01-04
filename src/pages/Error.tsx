@@ -1,8 +1,10 @@
+import { Box } from "@chakra-ui/react"
+
 const Error = () => {
   return (
-    <div>
+    <Box>
         An Error Occured
-    </div>
+    </Box>
   )
 }
 

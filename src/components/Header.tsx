@@ -15,7 +15,7 @@ const Header = () => {
         </Flex>
 
         <HStack align='center' spacing='70px'>
-          <Link to="">Account</Link>
+          <Link to={`profile/`}>Account</Link>
           <Link to="/cart">Cart <Tag display='inline-flex' justifyContent='center' alignItems='center' colorScheme="orange" size='md'><TagLabel>0</TagLabel></Tag></Link>
         </HStack>
 
