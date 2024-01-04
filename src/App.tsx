@@ -1,5 +1,6 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { UserContextProvider } from "./components/userContext";
 import Home from "./pages/Home";
 import Error from "./pages/Error";
 import Cart from "./pages/Cart";
@@ -53,9 +54,11 @@ const router = createBrowserRouter([
 const App = () => {
 
   return (
+    <UserContextProvider>
       <ChakraProvider theme={mainTheme}>
         <RouterProvider router={router}/>
       </ChakraProvider>
+    </UserContextProvider>
   )
 }
 

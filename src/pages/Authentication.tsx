@@ -1,6 +1,10 @@
+
 const Authentication = () => {
   return (
-    <div>Authentication</div>
+    <>
+        Authentication
+      {/* <Footer /> */}
+    </>
   )
 }
 

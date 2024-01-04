@@ -39,6 +39,42 @@ const cards = [
     price: 6000,
     percentage_discount: 20,
   },
+  {
+    image: one,
+    title: 'Card Test',
+    price: 2000,
+    percentage_discount: 20,
+  },
+  {
+    image: two,
+    title: 'Card Test',
+    price: 6000,
+    percentage_discount: 20,
+  },
+  {
+    image: three,
+    title: 'Card Test',
+    price: 6000,
+    percentage_discount: 20,
+  },
+  {
+    image: one,
+    title: 'Card Test',
+    price: 2000,
+    percentage_discount: 20,
+  },
+  {
+    image: two,
+    title: 'Card Test',
+    price: 6000,
+    percentage_discount: 20,
+  },
+  {
+    image: three,
+    title: 'Card Test',
+    price: 6000,
+    percentage_discount: 20,
+  },
 ]
 
 const Home = () => {
