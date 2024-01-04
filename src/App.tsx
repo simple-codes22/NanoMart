@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import Account from "./pages/Account";
 import Product from "./pages/Product";
 import Authentication from "./pages/Authentication";
+import Search from "./pages/Search";
 
 const mainTheme = extendTheme({
   colors: {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
     path: 'product/',
     element: <Product />
   },
+  {
+    path: 'search/:product',
+    element: <Search />
+  }
 ])
 
 
