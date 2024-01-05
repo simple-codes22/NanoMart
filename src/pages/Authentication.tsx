@@ -1,6 +1,7 @@
-import { Box, Input, Button, Divider, AbsoluteCenter, Flex, Text } from "@chakra-ui/react"
+import { Box, Image, Input, Button, Divider, AbsoluteCenter, Flex, Text, HStack } from "@chakra-ui/react"
 import { useState } from "react"
 import usePreventZoom from "../components/usePreventDefault";
+import image from './../assets/Showcase/pexels-karolina-grabowska-5632402.jpg';
 
 interface loginModel<Type> {
   username: Type;
@@ -17,11 +18,11 @@ const Authentication = () => {
   return (
     <Box position='fixed' top={0} bottom={0} left={0} right={0} display='flex'>
         <Flex width="60%" justify='center' align='center'>
-          Image Resides Here
+          <Image src={image} objectFit='cover' height="100%" width="100%" alt="Photo by Karolina Grabowska" />
         </Flex>
         <Box width="40%" display='flex' justifyContent="center" alignItems='center'>
           <Flex justify='center' align='center' direction='column' width="70%">
-            <Text>Sign In</Text>
+            <Text fontSize="25px" mb={10}>Sign In</Text>
 
             <Input name="Username" variant='flushed' mb="20px" placeholder="Username" onKeyUp={(elem) => {
               setLoginState({
@@ -50,11 +51,11 @@ const Authentication = () => {
               Or
             </AbsoluteCenter>
             </Box>
-            <Flex justify='space-evenly' align='center' >
+            <HStack spacing='40px'>
               <Button>Google</Button>
               <Button>X</Button>
               <Button>GitHub</Button>
-            </Flex>
+            </HStack>
           </Flex>
         </Box>
       {/* <Footer /> */}
