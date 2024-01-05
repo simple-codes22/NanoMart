@@ -30,7 +30,7 @@ const Authentication = () => {
                 email: loginState.email,
               })
             }} />
-            <Input name="email" variant='flushed' mb="20px" placeholder="email" onKeyUp={(elem) => {
+            <Input name="email" variant='flushed' mb="20px" placeholder="Email" onKeyUp={(elem) => {
               console.log((typeof elem).toString());
               setLoginState({
                 username: loginState.username,

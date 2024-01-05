@@ -28,9 +28,9 @@ const Header = () => {
 
         <HStack align='center' spacing='70px'>
           { user ? 
-            <Link to={`profile/`}>Account</Link>
+            <Link to={`/profile/`}>Account</Link>
             : 
-            <Link to={`auth/`}>Login / Sign Up</Link>
+            <Link to={`/auth/`}>Login / Sign Up</Link>
           }
           <Link to="/cart">Cart <Tag display='inline-flex' justifyContent='center' alignItems='center' colorScheme="orange" size='md'><TagLabel>0</TagLabel></Tag></Link>
         </HStack>

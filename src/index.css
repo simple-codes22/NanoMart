@@ -3,10 +3,8 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* flex-direction: column; */
-    /* width: 100%; */
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
