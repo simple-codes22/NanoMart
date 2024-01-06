@@ -1,4 +1,4 @@
-import { Box, Flex, Input, Button, HStack, Tag, TagLabel } from "@chakra-ui/react";
+import { Box, Flex, Input, Button, HStack, Tag, TagLabel, useToast } from "@chakra-ui/react";
 import { UserContext } from "./userContext";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ const Header = () => {
   const { user } = useContext(UserContext);
   const [search, setSearch] = useState<string>('');
   const navigate = useNavigate();
-
+  const Toast = useToast();
 
   return (
     <Flex as='header' justify='center' align='center' pt='20px' pb='20px'>
@@ -24,6 +24,15 @@ const Header = () => {
           <Button variant="outline" ml='10px' onClick={() => {
             if (search !== '') {
               navigate(`/search/${search}`)
+            } else {
+              Toast({
+                title: "Search is empty",
+                position: "bottom-right",
+                // description: "You haven't searched for a product",
+                status: 'info',
+                duration: 4000,
+                isClosable: false
+              })
             }
           }}>Search</Button>
         </Flex>
