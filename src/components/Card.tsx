@@ -19,7 +19,7 @@ const Card = (props: CardDetails) => {
     <>
         {props ? 
         <ChakraCard opacity='.9'>
-          <CardBody as={Link} to={`/product/`} _hover={{
+          <CardBody as={Link} to={`/product/1`} _hover={{
             // To be worked on later
           }}>
             <Image objectFit='cover' width="265px" height="265px" alt={props.title} src={props.image} />

@@ -22,7 +22,9 @@ const Header = () => {
             setSearch(elem.currentTarget.value);
           }} />
           <Button variant="outline" ml='10px' onClick={() => {
-            navigate(`/search/${search}`)
+            if (search !== '') {
+              navigate(`/search/${search}`)
+            }
           }}>Search</Button>
         </Flex>
 

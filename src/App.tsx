@@ -42,11 +42,11 @@ const router = createBrowserRouter([
     // ]
   },
   {
-  path: '/profile/:profile-id',
+  path: '/profile/:profile_id',
     element: <Account />,
   },
   {
-    path: '/product/',
+    path: '/product/:product_id',
     element: <Product />
   },
   {

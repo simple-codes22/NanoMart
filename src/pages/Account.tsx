@@ -1,12 +1,15 @@
-// import { Box } from '@chakra-ui/react'
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Box } from '@chakra-ui/react';
 
 const Account = () => {
   return (
     <>
       <Header />
-        Account
+        <Box as="main" maxWidth='1280px'>
+          Account Profile
+        </Box>
       <Footer />
     </>
   )
