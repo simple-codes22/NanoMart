@@ -87,7 +87,8 @@ const Product = () => {
             Customer Reviews
           </Text>
           <Box pb="30px">
-            <Box>Stars: 4.5/5</Box>
+            <Box pb='5px' fontSize='15px'>@User123</Box>
+            <Box fontSize='14px'>Stars: 4.5/5</Box>
             <Box>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Praesentium, sapiente omnis. Soluta natus facilis excepturi quidem
