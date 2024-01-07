@@ -1,5 +1,14 @@
 import React, { createContext, useState } from "react";
 
+export interface productCardModel {
+    product_id: string;
+    name: string;
+    description: string;
+    price: string;
+    discount: number;
+    date_added: string;
+  }
+
 export interface userModel {
     id: number,
     password: string, 
@@ -14,7 +23,8 @@ export interface userModel {
     customer_id: string,
     email: string,
     groups: string[],
-    user_permissions: string[]
+    user_permissions: number[],
+    cart: productCardModel[] | [],
 }
 
 

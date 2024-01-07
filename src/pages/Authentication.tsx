@@ -2,6 +2,8 @@ import { Box, Image, Input, Button, Divider, AbsoluteCenter, Flex, Text, HStack 
 import { useState } from "react"
 import usePreventZoom from "../components/usePreventDefault";
 import image from './../assets/Showcase/pexels-karolina-grabowska-5632402.jpg';
+// import { useContext } from "react";
+// import { UserContext } from "../components/userContext";
 
 interface loginModel<Type> {
   username: Type;
@@ -10,6 +12,26 @@ interface loginModel<Type> {
 
 const Authentication = () => {
   usePreventZoom();
+  
+  // const { user, setUser } = useContext(UserContext);
+
+  const completeAuth = async () => {
+    const request = await fetch(import.meta.env.VITE_HOST_USER, {
+      method: 'POST',
+      headers: {
+        "content-type": 'application/json',
+      },
+      body: JSON.stringify({
+        username: loginState.username,
+        email: loginState.email
+      })
+    });
+    const response = await request.json();
+    console.log(request.status)
+    console.log(await response);
+    // setUser(response);
+  }
+
   const [loginState, setLoginState] = useState<loginModel<string>>({
     username: "",
     email: "",
@@ -39,7 +61,8 @@ const Authentication = () => {
             }} />
 
             <Button onClick={() => {
-              
+              // elem.preventDefault();
+              completeAuth();
             }}>
               Sign In
             </Button>

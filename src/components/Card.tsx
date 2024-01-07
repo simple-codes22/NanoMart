@@ -2,9 +2,11 @@ import { Box, Button, CardBody, CardFooter, Card as ChakraCard, Image } from '@c
 import { useState } from 'react';
 // import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import noImage from './../assets/No_image_available.png';
+
 
 interface CardDetails {
-    image: string;
+    image: string | null;
     title: string;
     price: number;
     percentage_discount: number;
@@ -22,11 +24,15 @@ const Card = (props: CardDetails) => {
           <CardBody as={Link} to={`/product/1`} _hover={{
             // To be worked on later
           }}>
-            <Image objectFit='cover' width="265px" height="265px" alt={props.title} src={props.image} />
+            {props.image ? 
+              <Image objectFit='cover' width="265px" height="265px" alt={props.title} src={props.image} />
+            : 
+              <Image alt={`No image available for ${props.title}`} src={noImage} />
+            }
             <Box pt="30px" sx={{
-              fontSize: '20px',
+              fontSize: '18px',
               fontWeight: '600',
-              letterSpacing: '1px',
+              letterSpacing: '.6px',
               overflow: 'hidden',
             }}>
               {props.title}
