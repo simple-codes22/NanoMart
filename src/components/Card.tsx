@@ -53,23 +53,58 @@ const Card = (props: CardDetails) => {
             }}>
               {buttonText}
             </Button>
-
-            {/* {disabled ? 
-            <Button width='100%' id="btn-cart" onClick={() => {
-              setDisabled(true);
-              return
-            }}>
-              {buttonText}
-            </Button>
-            : 
-            <Button width="100%" disabled={true}>
-              In Cart
-            </Button>
-            } */}
           </CardFooter>
         </ChakraCard>
         : <Box></Box>}
     </>
+  )
+}
+
+export const SmallCard = (props: CardDetails) => {
+
+  const [buttonText, setButtonText] = useState<string>("Add To Cart");
+  const [disabled, setDisabled] = useState<boolean>(false);
+
+  return (
+  <>
+  {props ? 
+        <ChakraCard display='flex' maxWidth="250px">
+          <CardBody width="100%" display='flex' flexDirection='column' as={Link} to={`/product/1`} _hover={{
+            // To be worked on later
+          }}>
+            {props.image ? 
+              <Image alignSelf='center' objectFit='cover' maxWidth="150px" maxHeight="150px" alt={props.title} src={props.image} />
+            : 
+              <Image alignSelf='center' alt={`No image available for ${props.title}`} src={noImage} maxWidth="200px" maxHeight="200px" />
+            }
+            <Box pt="30px" sx={{
+              fontSize: '16px',
+              fontWeight: '500',
+              letterSpacing: '.3px',
+              overflow: 'hidden',
+            }}>
+              {props.title}
+            </Box>
+            <Box pt='10px' letterSpacing='1px'>
+              ${props.price}
+            </Box>
+          </CardBody>
+          <CardFooter>
+            {/* <Button>Wishlist</Button> */}
+            <Button width='100%' id="btn-cart" disabled={disabled} onClick={() => {
+              setDisabled(true);
+              setButtonText("Successfully Added");
+              setTimeout(() => {
+                setButtonText("In Cart");
+              }, 5000);
+              return
+            }}>
+              {buttonText}
+            </Button>
+          </CardFooter>
+        </ChakraCard>
+        : <Box></Box>}
+  </>
   )
 }
 
