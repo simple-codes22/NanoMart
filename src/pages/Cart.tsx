@@ -15,7 +15,16 @@ const Cart = () => {
     <>
     <Header />
     <Flex as='main'  align='center' width="100%">
-      {user ? <></>: 
+      {user ? 
+      <>
+        {user.cart.length !== 0 ? 
+          <></> 
+        : 
+          <Flex justify='center' align='center' width="100%" minH='500px' direction='column'>
+            <Text fontSize='35px' fontWeight='600' color="#0000009a">Your Cart Is Empty</Text>
+          </Flex>
+        }
+      </>: 
         <Flex justify='center' align='center' width="100%" minH='500px' direction='column'>
           <Text fontSize='35px' fontWeight='600' color="#0000009a">Your Cart Is Empty</Text>
           <Button mt='20px' mb='20px'>Sign In</Button>

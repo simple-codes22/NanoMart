@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 
+
 const Header = () => {
 
   const { user } = useContext(UserContext);
@@ -43,7 +44,7 @@ const Header = () => {
             : 
             <Link to={`/auth/`}>Login / Sign Up</Link>
           }
-          <Link to="/cart">Cart <Tag display='inline-flex' justifyContent='center' alignItems='center' colorScheme="orange" size='md'><TagLabel>0</TagLabel></Tag></Link>
+          <Link to="/cart">Cart <Tag display='inline-flex' justifyContent='center' alignItems='center' colorScheme="orange" size='md'><TagLabel>{user ? <>{user.cart.length}</>: <>0</>}</TagLabel></Tag></Link>
         </HStack>
 
       </Flex>
