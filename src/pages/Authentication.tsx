@@ -15,7 +15,8 @@ import usePreventZoom from "../components/usePreventDefault";
 import image from "./../assets/Showcase/pexels-karolina-grabowska-5632402.jpg";
 import { useContext } from "react";
 import { UserContext } from "../components/userContext";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 interface loginModel<Type> {
   email: Type;
@@ -24,7 +25,7 @@ interface loginModel<Type> {
 
 const Authentication = () => {
   usePreventZoom();
-  const navigator = useNavigate();
+  // const navigator = useNavigate();
   const Toast = useToast();
   const { setUser } = useContext(UserContext);
   const [statusText, setStatus] = useState("");
@@ -36,18 +37,24 @@ const Authentication = () => {
 
   const completeAuth = async () => {
     const request = await fetch(
-      `${import.meta.env.VITE_HOST_USER}${loginState.email}/${
-        loginState.password
-      }`,
+      `${import.meta.env.VITE_HOST_AUTH}`,
       {
-        method: "GET",
+        method: "POST",
+        headers: {
+          "Content-Type": 'application/json'
+        },
+        body: JSON.stringify({
+          email: loginState.email,
+          password: loginState.password
+        })
       }
     );
+
     const response = await request.json();
     if (request.status === 200) {
-      setUser(response);
-      console.log(response);
-      return navigator("/");
+      setUser(jwtDecode(response.access));
+      console.log(jwtDecode(response.access));
+      // return navigator("/");
     } else if (request.status === 404) {
       setStatus("Not Found");
       Toast({

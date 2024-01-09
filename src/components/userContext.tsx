@@ -10,21 +10,16 @@ export interface productCardModel {
   }
 
 export interface userModel {
-    id: number,
-    password: string, 
-    last_login: string,
-    is_superuser: boolean
-    username: string,
-    first_name: string,
-    last_name: string,
-    is_staff: boolean,
-    is_active: boolean,
-    date_joined: string,
     customer_id: string,
+    date_joined: string,
     email: string,
-    groups: string[],
-    user_permissions: number[],
-    cart: productCardModel[] | [],
+    exp: number,
+    iat: number,
+    jti: string,
+    token_type: string
+    user_id: string
+    username: string,
+    // cart: productCardModel[] | [],
 }
 
 

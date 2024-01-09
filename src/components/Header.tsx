@@ -44,7 +44,7 @@ const Header = () => {
             : 
             <Link to={`/auth/`}>Login / Sign Up</Link>
           }
-          <Link to="/cart">Cart <Tag display='inline-flex' justifyContent='center' alignItems='center' colorScheme="orange" size='md'><TagLabel>{user ? <>{user.cart.length}</>: <>0</>}</TagLabel></Tag></Link>
+          <Link to="/cart">Cart <Tag display='inline-flex' justifyContent='center' alignItems='center' colorScheme="orange" size='md'><TagLabel>{user ? <></>: <>0</>}</TagLabel></Tag></Link>
         </HStack>
 
       </Flex>
