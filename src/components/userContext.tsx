@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 import { jwtDecode } from "jwt-decode";
 
 export interface userDetails {
@@ -62,7 +62,7 @@ export const UserContextProvider = ({ children }: userContextProviderProps) => {
 
     
     useEffect(() => {
-        // const tenMinutes = 1000 * 60 * 10
+        const fiveMinutes = 1000 * 60 * 5
 
         const updateToken = async () => {
             console.log("Interval called")
@@ -84,7 +84,7 @@ export const UserContextProvider = ({ children }: userContextProviderProps) => {
             else if (response.statusText === "Unauthorized") {
                 setUser(null)
                 setUserToken(null)
-                Cookies.remove('authToken')
+                localStorage.removeItem('authToken');
             }
             if (loading) {
                 setLoading(false)
@@ -99,7 +99,7 @@ export const UserContextProvider = ({ children }: userContextProviderProps) => {
             if (userToken) {
                 updateToken();
             }
-        }, 5000);
+        }, fiveMinutes);
 
         return () => clearInterval(interval);
 
