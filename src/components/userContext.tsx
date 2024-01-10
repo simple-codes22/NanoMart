@@ -81,7 +81,7 @@ export const UserContextProvider = ({ children }: userContextProviderProps) => {
                 // Cookies.set('authToken', JSON.stringify(data))
                 // console.log("Auth token is now:", Cookies.get('authToken')?.toString())
             }
-            else if (response.statusText === "Unauthorized") {
+            else {
                 setUser(null)
                 setUserToken(null)
                 localStorage.removeItem('authToken');
@@ -91,17 +91,21 @@ export const UserContextProvider = ({ children }: userContextProviderProps) => {
             }
         }
         
-        if (loading){
-            updateToken()
+        
+        if (userToken) {
+            
+            if (loading){
+                updateToken()
+            }
+
+            const interval = setInterval(() => {
+                if (userToken) {
+                    updateToken();
+                }
+        }, fiveMinutes);
+        return () => clearInterval(interval);
         }
 
-        const interval = setInterval(() => {
-            if (userToken) {
-                updateToken();
-            }
-        }, fiveMinutes);
-
-        return () => clearInterval(interval);
 
     }, [userToken, loading])
 
@@ -116,7 +120,7 @@ export const UserContextProvider = ({ children }: userContextProviderProps) => {
 
     return (
         <UserContext.Provider value={contextValues}>
-        {loading ? null : children}
+        {children}
         </UserContext.Provider>
     )
 }
