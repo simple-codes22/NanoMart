@@ -1,16 +1,32 @@
 import { Box, Flex, Input, Button, HStack, Tag, TagLabel, useToast } from "@chakra-ui/react";
 import { UserContext } from "./userContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 
 
 const Header = () => {
 
-  const { user } = useContext(UserContext);
+  const { user, details, setDetails } = useContext(UserContext);
   const [search, setSearch] = useState<string>('');
   const navigate = useNavigate();
   const Toast = useToast();
+
+  useEffect(() => {
+
+    const getCart = async () => {
+      const cartResponse = await fetch(`${import.meta.env.VITE_HOST_USER}${user?.customer_id}`);
+      if (cartResponse.status === 200) {
+        const data = await cartResponse.json()
+        setDetails(data)
+      } else {
+        console.log(cartResponse.status);
+      }
+    };
+
+    user && getCart();
+
+  }, [user, setDetails])
 
   return (
     <Flex as='header' justify='center' align='center' pt='20px' pb='20px'>
@@ -44,7 +60,7 @@ const Header = () => {
             : 
             <Link to={`/auth/`}>Login / Sign Up</Link>
           }
-          <Link to="/cart">Cart <Tag display='inline-flex' justifyContent='center' alignItems='center' colorScheme="orange" size='md'><TagLabel>{user ? <></>: <>0</>}</TagLabel></Tag></Link>
+          <Link to="/cart">Cart <Tag display='inline-flex' justifyContent='center' alignItems='center' colorScheme="orange" size='md'><TagLabel>{details ? <>{details.cart.length}</>: <>0</>}</TagLabel></Tag></Link>
         </HStack>
 
       </Flex>

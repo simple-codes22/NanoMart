@@ -97,7 +97,7 @@ const Home = () => {
     getProducts();
   }, [])
 
-  console.log(productList)
+  // console.log(productList)
 
   return (
     <>

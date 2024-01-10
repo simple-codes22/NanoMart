@@ -15,8 +15,9 @@ import usePreventZoom from "../components/usePreventDefault";
 import image from "./../assets/Showcase/pexels-karolina-grabowska-5632402.jpg";
 import { useContext } from "react";
 import { UserContext } from "../components/userContext";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+// import Cookies from 'js-cookie'
 
 interface loginModel<Type> {
   email: Type;
@@ -25,7 +26,7 @@ interface loginModel<Type> {
 
 const Authentication = () => {
   usePreventZoom();
-  // const navigator = useNavigate();
+  const navigator = useNavigate();
   const Toast = useToast();
   const { setUser } = useContext(UserContext);
   const [statusText, setStatus] = useState("");
@@ -52,9 +53,11 @@ const Authentication = () => {
 
     const response = await request.json();
     if (request.status === 200) {
+      console.log(jwtDecode(response.access))
       setUser(jwtDecode(response.access));
-      console.log(jwtDecode(response.access));
-      // return navigator("/");
+      localStorage.setItem("authToken", JSON.stringify(response))
+      // Cookies.set('authToken', JSON.stringify({response}));
+      return navigator("/");
     } else if (request.status === 404) {
       setStatus("Not Found");
       Toast({
