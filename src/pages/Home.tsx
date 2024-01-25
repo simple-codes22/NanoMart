@@ -11,75 +11,6 @@ import { useEffect, useState } from "react";
 import { ellipsize } from "../components/misc";
 import { productCardModel } from "../components/userContext";
 
-// const cards = [
-//   {
-//     image: null,
-//     title: 'Card Test',
-//     price: 2000,
-//     percentage_discount: 20,
-//   },
-//   {
-//     image: two,
-//     title: 'Card Test',
-//     price: 6000,
-//     percentage_discount: 20,
-//   },
-//   {
-//     image: three,
-//     title: 'Card Test',
-//     price: 6000,
-//     percentage_discount: 20,
-//   },
-//   {
-//     image: four,
-//     title: 'Card Test',
-//     price: 6000,
-//     percentage_discount: 20,
-//   },
-//   {
-//     image: four,
-//     title: 'Card Test',
-//     price: 6000,
-//     percentage_discount: 20,
-//   },
-//   {
-//     image: one,
-//     title: 'Card Test',
-//     price: 2000,
-//     percentage_discount: 20,
-//   },
-//   {
-//     image: two,
-//     title: 'Card Test',
-//     price: 6000,
-//     percentage_discount: 20,
-//   },
-//   {
-//     image: three,
-//     title: 'Card Test',
-//     price: 6000,
-//     percentage_discount: 20,
-//   },
-//   {
-//     image: one,
-//     title: 'Card Test',
-//     price: 2000,
-//     percentage_discount: 20,
-//   },
-//   {
-//     image: two,
-//     title: 'Card Test',
-//     price: 6000,
-//     percentage_discount: 20,
-//   },
-//   {
-//     image: three,
-//     title: 'Card Test',
-//     price: 6000,
-//     percentage_discount: 20,
-//   },
-// ]
-
 const Home = () => {
   console.log(import.meta.env.VITE_HOST_PRODUCT)
   const [productList, setProductList] = useState([] as productCardModel[]);
@@ -96,8 +27,6 @@ const Home = () => {
     }
     getProducts();
   }, [])
-
-  // console.log(productList)
 
   return (
     <>
